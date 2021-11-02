@@ -5,6 +5,7 @@ import gym
 import numpy as np
 import pickle
 from mjrl.utils.gym_env import GymEnv
+import mj_allegro_envs
 
 DESC = '''
 Helper script to visualize policy (in mjrl format).\n
