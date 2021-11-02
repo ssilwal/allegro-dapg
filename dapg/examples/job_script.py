@@ -20,6 +20,7 @@ import mj_envs
 import time as timer
 import pickle
 import argparse
+import mj_allegro_envs
 
 # ===============================================================================
 # Get command line arguments
