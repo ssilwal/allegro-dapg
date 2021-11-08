@@ -21,6 +21,7 @@ import time as timer
 import pickle
 import argparse
 import mj_allegro_envs
+import wandb
 
 # ===============================================================================
 # Get command line arguments
@@ -29,6 +30,7 @@ import mj_allegro_envs
 parser = argparse.ArgumentParser(description='Policy gradient algorithms with demonstration data.')
 parser.add_argument('--output', type=str, required=True, help='location to store results')
 parser.add_argument('--config', type=str, required=True, help='path to config file with exp params')
+parser.add_argument('--project', type=str, required=True, help='path to config file with exp params')
 args = parser.parse_args()
 JOB_DIR = args.output
 if not os.path.exists(JOB_DIR):
@@ -46,6 +48,7 @@ with open(EXP_FILE, 'w') as f:
 # ===============================================================================
 # Train Loop
 # ===============================================================================
+wandb.init(project=args.project,group=job_data['algorithm'],config=job_data, reinit=True)
 
 e = GymEnv(job_data['env'])
 policy = MLP(e.spec, hidden_sizes=job_data['policy_size'], seed=job_data['seed'])
