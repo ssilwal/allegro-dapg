@@ -10,8 +10,7 @@ dependencies:
   - pip:
     - gym
     - termcolor
-    - git+git://github.com/ssilwal/mj_allegro.git
-    - git+git://github.com/ssilwal/mjrl.git
+    - git+git://github.com:openai/mujoco-py.git
     - git+git://github.com/vikashplus/mj_envs.git
     - imageio
     - imageio-ffmpeg
