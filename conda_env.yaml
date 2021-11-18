@@ -1,0 +1,19 @@
+name: allegro-dapg
+channels:
+  - defaults
+dependencies:
+  - python=3.6
+  - pytorch
+  - cudatoolkit=9.2
+  - absl-py
+  - pyparsing
+  - pip:
+    - gym
+    - termcolor
+    - mujoco_py
+    - git+git://github.com/vikashplus/mj_envs.git
+    - git+ssh://git@github.com/ssilwal/mj_allegro.git
+    - git+ssh://git@github.com/ssilwal/mjrl.git
+    - imageio
+    - imageio-ffmpeg
+    - git+git://github.com/facebookresearch/hydra@0.11_branch
