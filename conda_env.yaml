@@ -10,12 +10,9 @@ dependencies:
   - pip:
     - gym
     - termcolor
-    - git+git://github.com:ssilwal/mj_allegro.git
-    - git+git://github.com:ssilwal/mjrl.git
-    - git+git://github.com:vikashplus/mj_envs.git
+    - git+git://github.com/ssilwal/mj_allegro.git
+    - git+git://github.com/ssilwal/mjrl.git
+    - git+git://github.com/vikashplus/mj_envs.git
     - imageio
     - imageio-ffmpeg
     - git+git://github.com/facebookresearch/hydra@0.11_branch
-
-
-
