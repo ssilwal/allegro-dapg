@@ -10,10 +10,20 @@ dependencies:
   - pip:
     - gym
     - termcolor
-    - mujoco_py
-    - git+git://github.com/vikashplus/mj_envs.git
+    - git+file:/home/ss14499/development/mj_envs
+      # - git+file:/home/ss14499/development/mjrl
     - git+ssh://git@github.com/ssilwal/mj_allegro.git
     - git+ssh://git@github.com/ssilwal/mjrl.git
+    - git+ssh://git@github.com/NYU-robot-learning/Allegro-Inverse-Kinematics.git 
     - imageio
     - imageio-ffmpeg
-    - git+git://github.com/facebookresearch/hydra@0.11_branch
+      #- git+git://github.com/facebookresearch/hydra@1.1_branch
+    - hydra-core #1.1.1v
+    - matplotlib
+    - wandb
+    - tqdm
+    - tabulate
+    - opencv-python
+    - ikpy
+    - IPython
+
