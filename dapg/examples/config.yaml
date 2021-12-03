@@ -43,7 +43,7 @@ job_data:
   exp_notes: 'training policy using DAPG for the block-v0 task, 24 demos'
 
   # Demonstration data and behavior cloning
-  demo_file:  '../demonstrations/oct-block-v0_demos.pickle'
+  demo_file:  '/home/ss14499/development/hydra/dapg/dapg/demonstrations/oct-block-v0_demos.pickle'
   bc_batch_size: 32
   bc_epochs: 20
   bc_learn_rate: 1e-2
