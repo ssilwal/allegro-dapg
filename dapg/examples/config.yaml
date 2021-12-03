@@ -32,3 +32,31 @@ name: null     # name=1,2,3 is a convenient way to schedule repeats with the sam
 cuda: true     # override to manually disable cuda, otherwise will use gpu if available (silently switches to cpu if not)
 random_seed: 42
 log_freq: 5     # frequency of logging in *seconds*
+
+job-data:
+  env: 'block-v3'
+  algorithm: DAPG
+  seed: 123
+  num_cpu: 5
+  save_freq: 25
+  eval_rollouts: 25
+  exp_notes: 'training policy using DAPG for the block-v0 task, 24 demos'
+
+  # Demonstration data and behavior cloning
+  demo_file:  '../demonstrations/oct-block-v0_demos.pickle',
+  bc_batch_size: 32,
+  bc_epochs: 20,
+  bc_learn_rate: 1e-2,
+
+# RL parameters (all params related to PG, value function, DAPG etc.)
+policy_size: (32, 32),
+vf_batch_size: 64,
+vf_epochs: 2,
+vf_learn_rate: 1e-3,
+rl_step_size: 0.05,
+rl_gamma: 0.995,
+rl_gae: 0.97,
+rl_num_traj: 300,
+rl_num_iter: 300,
+lam_0: 1e-2,
+lam_1: 0.95,
