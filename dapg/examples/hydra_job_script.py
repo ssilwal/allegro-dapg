@@ -65,7 +65,6 @@ def main(flags : DictConfig):
     wandb.init(project=flags.wbproject,group=flags.job_data.algorithm,config=flags.job_data, reinit=True)
 
     e = GymEnv(flags.job_data.env)
-    print(type(flags.job_data.policy_size))
     policy = MLP(e.spec, hidden_sizes=tuple(flags.job_data.policy_size), seed=flags.job_data.seed)
     baseline = MLPBaseline(e.spec, reg_coef=1e-3, batch_size=flags.job_data.vf_batch_size,
                            epochs=flags.job_data.vf_epochs, learn_rate=flags.job_data.vf_learn_rate)
