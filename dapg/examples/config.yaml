@@ -2,14 +2,16 @@
 defaults:
   - override hydra/job_logging: colorlog
   - override hydra/hydra_logging: colorlog
-  - override hydra/launcher: submitit_slurm
+    # - override hydra/launcher: submitit_slurm
+  - override hydra/launcher: joblib
 
+    
 hydra:
   run:  # don't put outputs in HOME, use SCRATCH instead
     dir: ${env:SCRATCH}/outputs/${now:%Y-%m-%d}/${now:%H-%M-%S}
   sweep:
     dir: ${env:SCRATCH}/multirun/${now:%Y-%m-%d}/${now:%H-%M-%S}
-  launcher:
+'''  launcher:
     #gres: gpu:1     # use this on the nyu greene cluster instead of partition
     timeout_min: 15     
     tasks_per_node: 1
@@ -20,7 +22,7 @@ hydra:
     gpus_per_node: null     # don't use this, use gres
     partition: null     # don't use this
     comment: null     # optionally use this to tell others on the cluster what your job is up to
-
+'''
 # weights and biases config
 wandb: False     # prefer to override this on commandline to avoid cluttering your wandb profile
 wbentity: null     # I think this defaults to the `wandb login` user, so no need to override
@@ -34,6 +36,7 @@ random_seed: 42
 log_freq: 5     # frequency of logging in *seconds*
 
 job_data:
+  test_name: 't1'
   env: 'block-v3'
   algorithm: DAPG
   seed: 123
