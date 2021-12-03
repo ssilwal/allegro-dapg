@@ -33,7 +33,7 @@ cuda: true     # override to manually disable cuda, otherwise will use gpu if av
 random_seed: 42
 log_freq: 5     # frequency of logging in *seconds*
 
-job-data:
+job_data:
   env: 'block-v3'
   algorithm: DAPG
   seed: 123
