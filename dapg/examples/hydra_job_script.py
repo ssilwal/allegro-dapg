@@ -115,7 +115,7 @@ def main(flags : DictConfig):
     print("========================================")
 
     ts = timer.time()
-    train_agent(job_name=JOB_DIR,
+    train_agent(job_name=os.getcwd(),
                 agent=rl_agent,
                 seed=flags.job_data.seed,
                 niter=flags.job_data.rl_num_iter,
