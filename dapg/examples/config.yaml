@@ -22,7 +22,7 @@ hydra:
     gpus_per_node: null     # don't use this, use gres
     partition: null     # don't use this
     comment: null     # optionally use this to tell others on the cluster what your job is up to
-
+    setup: ['bash setup.sh']
 # weights and biases config
 wandb: False     # prefer to override this on commandline to avoid cluttering your wandb profile
 wbentity: null     # I think this defaults to the `wandb login` user, so no need to override
