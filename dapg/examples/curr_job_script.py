@@ -11,7 +11,7 @@ from mjrl.baselines.mlp_baseline import MLPBaseline
 from mjrl.algos.npg_cg import NPG
 from mjrl.algos.dapg import DAPG
 from mjrl.algos.behavior_cloning import BC
-import curriculum_train_agent
+import curriculum_train_agent as cta
 from mjrl.samplers.core import sample_paths
 import os
 import json
@@ -101,7 +101,7 @@ print("Starting reinforcement learning phase")
 print("========================================")
 
 ts = timer.time()
-curriculum_train_agent(job_name=JOB_DIR,
+cta.curriculum_train_agent(job_name=JOB_DIR,
             agent=rl_agent,
             seed=job_data['seed'],
             niter=job_data['rl_num_iter'],

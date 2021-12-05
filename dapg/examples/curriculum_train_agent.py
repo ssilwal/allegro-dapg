@@ -69,6 +69,7 @@ def curriculum_train_agent(job_name, agent,
                 num_traj = 50,
                 num_samples = 50000, # has precedence, used with sample_mode = 'samples'
                 eval_thresh = 0.4,
+                incr_goals = None,
                 save_freq = 10,
                 evaluation_rollouts = None,
                 plot_keys = ['stoc_pol_mean'],
@@ -85,6 +86,7 @@ def curriculum_train_agent(job_name, agent,
     best_perf = -1e8
     train_curve = best_perf*np.ones(niter)
     mean_pol_perf = 0.0
+    goal_idx = 0
     e = GymEnv(agent.env.env_id)
 
     # Load from any existing checkpoint, policy, statistics, etc.
@@ -117,7 +119,9 @@ def curriculum_train_agent(job_name, agent,
                 agent.logger.log_kv('eval_score', mean_pol_perf)
 
             if(mean_pol_perf>=eval_thresh): #policy reached threshold, change goals
-                e.env.increase_goal_difficulty()
+                if incr_goals is not None and goal_idx < len(incr_goals):
+                    e.env.increase_goal_difficulty(incr_goals[goal_idx])
+                    goal_idx +=1
 
         if i % save_freq == 0 and i > 0:
             if agent.save_logs:
