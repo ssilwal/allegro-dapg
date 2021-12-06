@@ -118,13 +118,7 @@ def curriculum_train_agent(job_name, agent,
             if agent.save_logs:
                 agent.logger.log_kv('eval_score', mean_pol_perf)
 
-            if(mean_pol_perf>=eval_thresh): #policy reached threshold, change goals
-
-                if incr_goals is not None and goal_idx < len(incr_goals):
-                    print("Policy reached threshold, changing goals!....")
-                    e.env.increase_goal_difficulty(incr_goals[goal_idx])
-                    print("NEW GOAL IS: " + str(e.env.get_goal()))
-                    goal_idx +=1
+            
 
         if i % save_freq == 0 and i > 0:
             if agent.save_logs:

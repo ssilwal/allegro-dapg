@@ -10,6 +10,7 @@ from mjrl.baselines.quadratic_baseline import QuadraticBaseline
 from mjrl.baselines.mlp_baseline import MLPBaseline
 from mjrl.algos.npg_cg import NPG
 from mjrl.algos.dapg import DAPG
+from mjrl.algos.curr_dapg import CDAPG
 from mjrl.algos.behavior_cloning import BC
 import curriculum_train_agent as cta
 from mjrl.samplers.core import sample_paths
@@ -35,10 +36,11 @@ args = parser.parse_args()
 JOB_DIR = args.output
 if not os.path.exists(JOB_DIR):
     os.mkdir(JOB_DIR)
+print("CURRENT_DIRECTORY: " + os.getcwd())
 with open(args.config, 'r') as f:
     job_data = eval(f.read())
 assert 'algorithm' in job_data.keys()
-assert any([job_data['algorithm'] == a for a in ['NPG', 'BCRL', 'DAPG']])
+assert any([job_data['algorithm'] == a for a in ['NPG', 'BCRL', 'DAPG','CDAPG']])
 job_data['lam_0'] = 0.0 if 'lam_0' not in job_data.keys() else job_data['lam_0']
 job_data['lam_1'] = 0.0 if 'lam_1' not in job_data.keys() else job_data['lam_1']
 EXP_FILE = JOB_DIR + '/job_config.json'
@@ -82,19 +84,28 @@ if job_data['algorithm'] != 'NPG':
         score = e.evaluate_policy(policy, num_episodes=job_data['eval_rollouts'], mean_action=True)
         print("Score with behavior cloning = %f" % score[0][0])
 
-if job_data['algorithm'] != 'DAPG':
+if job_data['algorithm'] != 'DAPG' and job_data['algorithm'] != 'CDAPG':
     # We throw away the demo data when training from scratch or fine-tuning with RL without explicit augmentation
     demo_paths = None
 
 # ===============================================================================
 # RL Loop
 # ===============================================================================
-
-rl_agent = DAPG(e, policy, baseline, demo_paths,
-                normalized_step_size=job_data['rl_step_size'],
-                lam_0=job_data['lam_0'], lam_1=job_data['lam_1'],
-                seed=job_data['seed'], save_logs=True
-                )
+rl_agent = None
+if job_data['algorithm'] == 'DAPG':
+    rl_agent = DAPG(e, policy, baseline, demo_paths,
+                    normalized_step_size=job_data['rl_step_size'],
+                    lam_0=job_data['lam_0'], lam_1=job_data['lam_1'],
+                    seed=job_data['seed'], save_logs=True
+                    )
+else: 
+    rl_agent = CDAPG(e, policy, baseline, demo_paths,
+                    eval_thresh=0,
+                    incr_goals=job_data['rl_incr_goals'],
+                    normalized_step_size=job_data['rl_step_size'],
+                    lam_0=job_data['lam_0'], lam_1=job_data['lam_1'],
+                    seed=job_data['seed'], save_logs=True
+                    )
 
 print("========================================")
 print("Starting reinforcement learning phase")
@@ -110,8 +121,6 @@ cta.curriculum_train_agent(job_name=JOB_DIR,
             num_cpu=job_data['num_cpu'],
             sample_mode='trajectories',
             num_traj=job_data['rl_num_traj'],
-            eval_thresh=0.4,
-            incr_goals=job_data['rl_incr_goals'],
             save_freq=job_data['save_freq'],
             evaluation_rollouts=job_data['eval_rollouts'])
 print("time taken = %f" % (timer.time()-ts))
