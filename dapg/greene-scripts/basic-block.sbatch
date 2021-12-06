@@ -4,7 +4,7 @@
 #SBATCH --output=/scratch/ss14499/runs/%j_%x.out
 #SBATCH --error=/scratch/ss14499/runs/%j_%x.err
 #SBATCH --export=ALL
-#SBATCH --time=10:00:00
+#SBATCH --time=16:00:00
 #SBATCH --mem=64G
 #SBATCH -c 1
 
