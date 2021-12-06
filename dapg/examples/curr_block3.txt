@@ -2,7 +2,7 @@
 
 # general inputs
 
-'env'           :   'block-v3',
+'env'           :   'denseblock-v3',
 'algorithm'     :   'DAPG',
 'seed'          :   123,
 'num_cpu'       :   5,
