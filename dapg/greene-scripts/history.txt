@@ -1,0 +1,8 @@
+basic-block.sbatch ./dapg-start.txt $SCRATCH/experiments/starts/ greene
+
+
+basic-block.sbatch ./start_configs/start1.txt $SCRATCH/experiments/starts/1 greene
+
+basic-block.sbatch ./start_configs/start2.txt $SCRATCH/experiments/starts/2 greene
+
+basic-block.sbatch ./start_configs/start3.txt $SCRATCH/experiments/starts/3 greene
