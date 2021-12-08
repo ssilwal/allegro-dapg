@@ -82,7 +82,7 @@ if job_data['algorithm'] != 'NPG':
     
     if(random_start):
         e.random_start = True
-    if(job_data['mix_goals']):
+    if('mix_goals' in job_data):
         e.set_mix_goals(job_data['mix_goals'])
 
     if job_data['eval_rollouts'] >= 1:

@@ -80,7 +80,7 @@ if job_data['algorithm'] != 'NPG':
     print("time taken = %f" % (timer.time() - ts))
     print("========================================")
 
-    if(job_data['mix_goals']):
+    if('mix_goals' in job_data):
         e.set_mix_goals(job_data['mix_goals'])
 
     if job_data['eval_rollouts'] >= 1:
