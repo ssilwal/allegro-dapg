@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=dapg-basic
+#SBATCH --job-name=start
 #SBATCH --open-mode=append
 #SBATCH --output=/scratch/ss14499/runs/%j_%x.out
 #SBATCH --error=/scratch/ss14499/runs/%j_%x.err
@@ -21,7 +21,7 @@ cd /home/ss14499/development/dapg/dapg/examples
 echo \"dapg commit id:\" && git rev-parse HEAD
 
 echo \"mj_allegro commit:\"
-cat /ext3/miniconda3/envs/allegro-dapg/lib/python3.6/site-packages/mj_allegro_envs-1.0.0.dist-info/direct_url.json | grep -o \'\\\"commit_id.*,\'
+cat /ext3/miniconda3/envs/allegro-dapg/lib/python3.6/site-packages/mj_allegro_envs-1.0.0.dist-info/direct_url.json
 
 echo \"mjrl commit:\"
 cat /ext3/miniconda3/envs/allegro-dapg/lib/python3.6/site-packages/mjrl-1.0.0.dist-info/direct_url.json
@@ -32,5 +32,5 @@ cat /ext3/miniconda3/envs/allegro-dapg/lib/python3.6/site-packages/allegro_ik_co
 cd ../../../mj_envs/ && echo \"mj_envs commit:\" && git rev-parse HEAD && cd -
 
 [ ! -d $2 ] mkdir $2
-python job_script.py --output $2 --config $1 --project $3
+python start_job_script.py --output $2 --config $1 --project $3
 " 

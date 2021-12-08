@@ -8,7 +8,7 @@
 'num_cpu'       :   1,
 'save_freq'     :   25,
 'eval_rollouts' :   25,
-'exp_notes'     :   'block-v3 task, 14 demos, incremental changes in goals',
+'exp_notes'     :   'block-v3 task, 14 demos, incremental changes in goals, mj c42e444',
 
 # Demonstration data and behavior cloning
 
@@ -18,16 +18,16 @@
 'bc_learn_rate' :   1e-2,
 
 # RL parameters (all params related to PG, value function, DAPG etc.)
-
+'mix_goals'     :   3.0,
 'policy_size'   :   (32, 32),
 'vf_batch_size' :   64,
 'vf_epochs'     :   2,
-'vf_learn_rate' :   1e-3,
+'vf_learn_rate' :   1e-4,
 'rl_step_size'  :   0.05,
 'rl_gamma'      :   0.995,
 'rl_gae'        :   0.97,
-'rl_num_traj'   :   300,
-'rl_num_iter'   :   300,
+'rl_num_traj'   :   30,
+'rl_num_iter'   :   3000,
 'lam_0'         :   1e-2,
 'lam_1'         :   0.95,
 'rl_incr_goals' :   [[0.7,0.7,0.0,0.0],[0.701,0.701,0.092,0.092],[0.683,0.683,0.183,0.183],[0.653,0.653,0.271,0.271]]

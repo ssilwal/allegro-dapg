@@ -80,6 +80,9 @@ if job_data['algorithm'] != 'NPG':
     print("time taken = %f" % (timer.time() - ts))
     print("========================================")
 
+    if(job_data['mix_goals']):
+        e.set_mix_goals(job_data['mix_goals'])
+
     if job_data['eval_rollouts'] >= 1:
         score = e.evaluate_policy(policy, num_episodes=job_data['eval_rollouts'], mean_action=True)
         print("Score with behavior cloning = %f" % score[0][0])
@@ -99,8 +102,9 @@ if job_data['algorithm'] == 'DAPG':
                     seed=job_data['seed'], save_logs=True
                     )
 else: 
+    ethresh = job_data['eval_thresh'] if 'eval_thresh' in job_data else 0.6
     rl_agent = CDAPG(e, policy, baseline, demo_paths,
-                    eval_thresh=0,
+                    eval_thresh=ethresh,
                     incr_goals=job_data['rl_incr_goals'],
                     normalized_step_size=job_data['rl_step_size'],
                     lam_0=job_data['lam_0'], lam_1=job_data['lam_1'],
