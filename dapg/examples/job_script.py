@@ -61,8 +61,8 @@ if job_data['algorithm'] != 'NPG':
     print("Collecting expert demonstrations")
     print("========================================")
     demo_paths = pickle.load(open(job_data['demo_file'], 'rb'))
-
-    if(job_data['random_starts']):
+    random_start = job_data['random_starts'] if 'random_starts' in job_data else False
+    if(random_start):
         e.random_start = False
     bc_agent = BC(demo_paths, policy=policy, epochs=job_data['bc_epochs'], batch_size=job_data['bc_batch_size'],
                   lr=job_data['bc_learn_rate'], loss_type='MSE', set_transforms=False)
@@ -80,11 +80,11 @@ if job_data['algorithm'] != 'NPG':
     print("time taken = %f" % (timer.time() - ts))
     print("========================================")
     
-    if(job_data['random_starts']):
+    if(random_start):
         e.random_start = True
     if(job_data['mix_goals']):
         e.set_mix_goals(job_data['mix_goals'])
-        
+
     if job_data['eval_rollouts'] >= 1:
         score = e.evaluate_policy(policy, num_episodes=job_data['eval_rollouts'], mean_action=True)
         print("Score with behavior cloning = %f" % score[0][0])
