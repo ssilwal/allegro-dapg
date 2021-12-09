@@ -1,0 +1,115 @@
+basic-block.sbatch ./dapg-start.txt $SCRATCH/experiments/starts/ greene
+
+sbatch basic-block.sbatch ./start_configs/start1.txt $SCRATCH/experiments/starts/sunday/1 greene
+
+sbatch basic-block.sbatch ./start_configs/start2.txt $SCRATCH/experiments/starts/sunday/2 greene
+
+sbatch basic-block.sbatch ./start_configs/start3.txt $SCRATCH/experiments/starts/sunday/3 greene
+
+mj_allegro: commit id  a1dccf0e04e2fa9b7b89e84e49f67af505cad2d8
+start 1: Submitted batch job 12205050
+start 2: 12205051
+start 3: 12205052n
+--> all failed
+
+
+sbatch ../greene-scripts/basic-block.sbatch ./greene-baseline.txt $SCRATCH/experiments/starts/nov22/baseline greene
+Submitted batch job 12230611
+
+MJ Allegro Env: 77a245967a973
+sbatch ../greene-scripts/basic-block.sbatch ./greene-baseline.txt $SCRATCH/experiments/starts/nov22/baseline greene-baseline
+Submitted batch job 12230631
+
+
+
+basic-block.sbatch ./dapg-start.txt $SCRATCH/experiments/starts/ greene
+
+
+sbatch basic-block.sbatch ./start_configs/start1.txt $SCRATCH/experiments/starts/sunday/1 greene
+
+sbatch basic-block.sbatch ./start_configs/start2.txt $SCRATCH/experiments/starts/sunday/2 greene
+
+sbatch basic-block.sbatch ./start_configs/start3.txt $SCRATCH/experiments/starts/sunday/3 greene
+
+start 1: Submitted batch job 12205050
+start 2: 12205051
+start 3: 12205052n
+
+sbatch ../greene-scripts/basic-block.sbatch ./start_configs/start1.txt $SCRATCH/experiments/starts/nov24/1 greene2
+
+sbatch ../greene-scripts/basic-block.sbatch ./start_configs/start2.txt $SCRATCH/experiments/starts/nov24/2 greene2
+
+sbatch ../greene-scripts/basic-block.sbatch ./start_configs/start3.txt $SCRATCH/experiments/starts/nov24/3 greene2
+
+
+sbatch ../greene-scripts/basic-block.sbatch ./start_configs/start3.txt $SCRATCH/experiments/starts/nov24/3 greene2
+
+
+sbatch ../greene-scripts/basic-block.sbatch ./b3sparse.txt $SCRATCH/experiments/starts/nov24/b3sparse blockv3
+sbatch ../greene-scripts/basic-block.sbatch ./b3dense.txt $SCRATCH/experiments/starts/nov24/b3dense blockv3
+
+sbatch ../greene-scripts/basic-block.sbatch start_b3/start1.txt $SCRATCH/experiments/starts/nov24/b3_1 blockv3
+
+sbatch ../greene-scripts/basic-block.sbatch start_b3/start2.txt $SCRATCH/experiments/starts/nov24/b3_2 blockv3
+
+sbatch ../greene-scripts/basic-block.sbatch start_b3/start3.txt $SCRATCH/experiments/starts/nov24/b3_3 blockv3
+
+sbatch ../greene-scripts/basic-block.sbatch traj/b3_r1.txt $SCRATCH/experiments/dec8/traj/b3_r1 dec8-traj
+sbatch ../greene-scripts/basic-block.sbatch traj/b3_r2.txt $SCRATCH/experiments/dec8/traj/b3_r2 dec8-traj
+sbatch ../greene-scripts/basic-block.sbatch traj/b3_r3.txt $SCRATCH/experiments/dec8/traj/b3_r3 dec8-traj
+sbatch ../greene-scripts/basic-block.sbatch traj/b3_r4.txt $SCRATCH/experiments/dec8/traj/b3_r4 dec8-traj
+
+
+curr_job_script.py --output /scratch/ss14499/experiments/curr/r2_dense --config curr_block3.txt --project dec5
+
+curr_job_script.py --output /scratch/ss14499/experiments/cpu/r1 --config cpu/r1.txt --project dec9-cpu
+
+sbatch ../greene-scripts/basic-block.sbatch cpu/r1.txt /scratch/ss14499/experiments/dec9cpu/r1 dec9-cpu
+
+sbatch ../greene-scripts/basic-block.sbatch cpu/r2.txt /scratch/ss14499/experiments/dec9cpu/r2 dec9-cpu
+
+sbatch ../greene-scripts/basic-block.sbatch cpu/r3.txt /scratch/ss14499/experiments/dec9cpu/r3 dec9-cpu
+
+sbatch ../greene-scripts/basic-block.sbatch traj/r1.txt $SCRATCH/experiments/dec8/traj/r1 dec8-traj
+sbatch ../greene-scripts/basic-block.sbatch traj/r2.txt $SCRATCH/experiments/dec8/traj/r2 dec8-traj
+sbatch ../greene-scripts/basic-block.sbatch traj/r3.txt $SCRATCH/experiments/dec8/traj/r3 dec8-traj
+sbatch ../greene-scripts/basic-block.sbatch traj/r4.txt $SCRATCH/experiments/dec8/traj/r4 dec8-traj
+
+sbatch ../greene-scripts/curr-block.sbatch curr_block3.txt   $SCRATCH/experiments/curr/r2_dense_2 dec5
+
+sbatch ../greene-scripts/starts-block.sbatch sweep1/r2.txt $SCRATCH/experiments/starts/dec6/r2_fix dec1
+
+(base) [ss14499@log-3 examples]$ sbatch ../greene-scripts/starts-block.sbatch sweep1/r2.txt $SCRATCH/experiments/starts/dec6/r2_fix dec1^C
+
+
+
+commit: e712a3f105c588330cab36f37d363a09384dd929
+12926527 12926537 12926539 12926540 12926541 12926543
+sbatch ../greene-scripts/curr-block.sbatch curr_block3.txt   $SCRATCH/experiments/curr/d9_curr/currblock3 dec9-curr
+sbatch ../greene-scripts/curr-block.sbatch curr_training/mix_1.txt   $SCRATCH/experiments/curr/d9_currblock3/m1 dec9-curr
+sbatch ../greene-scripts/curr-block.sbatch curr_training/mix_2.txt   $SCRATCH/experiments/curr/d9_currblock3/m2 dec9-curr
+sbatch ../greene-scripts/curr-block.sbatch curr_training/mix_3.txt   $SCRATCH/experiments/curr/d9_currblock3/m3 dec9-curr
+sbatch ../greene-scripts/curr-block.sbatch curr_training/mix_4.txt   $SCRATCH/experiments/curr/d9_currblock3/m4 dec9-curr
+sbatch ../greene-scripts/curr-block.sbatch curr_training/baseline.txt $SCRATCH/experiments/curr/d9_currblock3/b dec9-curr
+
+
+
+
+
+sbatch ../greene-scripts/basic-block.sbatch sweep1/r1.txt   $SCRATCH/experiments/starts/dec3/r1 dec3
+sbatch ../greene-scripts/basic-block.sbatch sweep1/r2.txt   $SCRATCH/experiments/starts/dec3/r2 dec3
+sbatch ../greene-scripts/basic-block.sbatch sweep1/r3.txt   $SCRATCH/experiments/starts/dec3/r3 dec3
+sbatch ../greene-scripts/basic-block.sbatch sweep1/r4.txt   $SCRATCH/experiments/starts/dec3/r4 dec3
+sbatch ../greene-scripts/basic-block.sbatch sweep1/r5.txt   $SCRATCH/experiments/starts/dec3/r5 dec3
+sbatch ../greene-scripts/basic-block.sbatch sweep1/r6.txt   $SCRATCH/experiments/starts/dec3/r6 dec3
+sbatch ../greene-scripts/basic-block.sbatch sweep1/r7.txt   $SCRATCH/experiments/starts/dec3/r7 dec3
+sbatch ../greene-scripts/basic-block.sbatch sweep1/r8.txt   $SCRATCH/experiments/starts/dec3/r8 dec3
+sbatch ../greene-scripts/basic-block.sbatch sweep1/r9.txt   $SCRATCH/experiments/starts/dec3/r9 dec3
+
+sbatch ../greene-scripts/basic-block.sbatch sweep1/s1.txt   $SCRATCH/experiments/starts/dec3/s1 dec3
+sbatch ../greene-scripts/basic-block.sbatch sweep1/s2.txt   $SCRATCH/experiments/starts/dec3/s2 dec3
+sbatch ../greene-scripts/basic-block.sbatch sweep1/s3.txt   $SCRATCH/experiments/starts/dec3/s3 dec3
+sbatch ../greene-scripts/basic-block.sbatch sweep1/s4.txt   $SCRATCH/experiments/starts/dec3/s4 dec3
+
+sbatch ../greene-scripts/curr-block.sbatch curr_block3.txt   $SCRATCH/experiments/curr/r1 dec5
+
