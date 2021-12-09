@@ -81,7 +81,7 @@ if job_data['algorithm'] != 'NPG':
     print("========================================")
 
     if('mix_goals' in job_data):
-        e.set_mix_goals(job_data['mix_goals'])
+        e.env.set_mix_goals(job_data['mix_goals'])
 
     if job_data['eval_rollouts'] >= 1:
         score = e.evaluate_policy(policy, num_episodes=job_data['eval_rollouts'], mean_action=True)
