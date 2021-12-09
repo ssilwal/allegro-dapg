@@ -2,17 +2,17 @@
 
 # general inputs
 
-'env'           :   'denseblock-v3',
+'env'           :   'denseblock-v5',
 'algorithm'     :   'CDAPG',
 'seed'          :   123,
 'num_cpu'       :   1,
 'save_freq'     :   25,
 'eval_rollouts' :   25,
-'exp_notes'     :   'block-v3 task, 14 demos, incremental changes in goals, mj c42e444',
+'exp_notes'     :   'block-v5 task, 14 demos, incremental changes in goals, mj c42e444',
 
 # Demonstration data and behavior cloning
 
-'demo_file'     :   '../demonstrations/dec-block3.pickle',
+'demo_file'     :   '../demonstrations/new-dec-block5.pickle',
 'bc_batch_size' :   32,
 'bc_epochs'     :   20,
 'bc_learn_rate' :   1e-2,
