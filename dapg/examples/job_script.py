@@ -61,6 +61,9 @@ if job_data['algorithm'] != 'NPG':
     print("Collecting expert demonstrations")
     print("========================================")
     demo_paths = pickle.load(open(job_data['demo_file'], 'rb'))
+    random_start = job_data['random_starts'] if 'random_starts' in job_data else None
+    if(random_start):
+        e.env.env.set_random_start(0.0)
 
     bc_agent = BC(demo_paths, policy=policy, epochs=job_data['bc_epochs'], batch_size=job_data['bc_batch_size'],
                   lr=job_data['bc_learn_rate'], loss_type='MSE', set_transforms=False)
@@ -77,6 +80,12 @@ if job_data['algorithm'] != 'NPG':
     print("BC training complete !!!")
     print("time taken = %f" % (timer.time() - ts))
     print("========================================")
+    
+    if(random_start):
+        e.env.env.set_random_start(random_start)
+
+    if('mix_goals' in job_data):
+        e.set_mix_goals(job_data['mix_goals'])
 
     if job_data['eval_rollouts'] >= 1:
         score = e.evaluate_policy(policy, num_episodes=job_data['eval_rollouts'], mean_action=True)
