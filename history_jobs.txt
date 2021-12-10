@@ -113,3 +113,25 @@ sbatch ../greene-scripts/basic-block.sbatch sweep1/s4.txt   $SCRATCH/experiments
 
 sbatch ../greene-scripts/curr-block.sbatch curr_block3.txt   $SCRATCH/experiments/curr/r1 dec5
 
+
+sbatch ../greene-scripts/curr-block.sbatch block5/mix_1.txt   $SCRATCH/experiments/curr/d9_currblock5/m1 dec9-b5-curr
+sbatch ../greene-scripts/curr-block.sbatch block5/mix_2.txt   $SCRATCH/experiments/curr/d9_currblock5/m2 dec9-b5-curr
+sbatch ../greene-scripts/curr-block.sbatch block5/mix_3.txt   $SCRATCH/experiments/curr/d9_currblock5/m3 dec9-b5-curr
+sbatch ../greene-scripts/curr-block.sbatch block5/mix_4.txt   $SCRATCH/experiments/curr/d9_currblock5/m4 dec9-b5-curr
+sbatch ../greene-scripts/basic-block.sbatch block5/baseline.txt $SCRATCH/experiments/curr/d9_currblock5/b dec9-b5-curr
+
+sbatch ../greene-scripts/curr-block.sbatch block5/mix_1.txt   $SCRATCH/experiments/curr/d9_currblock5/m1_2 dec9-b5-curr
+sbatch ../greene-scripts/curr-block.sbatch block5/mix_2.txt   $SCRATCH/experiments/curr/d9_currblock5/m2_2 dec9-b5-curr
+sbatch ../greene-scripts/curr-block.sbatch block5/mix_3.txt   $SCRATCH/experiments/curr/d9_currblock5/m3_2 dec9-b5-curr
+sbatch ../greene-scripts/curr-block.sbatch block5/mix_4.txt   $SCRATCH/experiments/curr/d9_currblock5/m4_2 dec9-b5-curr
+
+
+sbatch ../greene-scripts/curr-block.sbatch block5/mix_1.txt   $SCRATCH/experiments/curr/d9_currblock5/m1_3 dec9-b5-curr
+sbatch ../greene-scripts/curr-block.sbatch block5/mix_2.txt   $SCRATCH/experiments/curr/d9_currblock5/m2_3 dec9-b5-curr
+sbatch ../greene-scripts/curr-block.sbatch block5/mix_3.txt   $SCRATCH/experiments/curr/d9_currblock5/m3_3 dec9-b5-curr
+sbatch ../greene-scripts/curr-block.sbatch block5/mix_4.txt   $SCRATCH/experiments/curr/d9_currblock5/m4_3 dec9-b5-curr
+
+
+
+sbatch ../greene-scripts/curr-block.sbatch block5/mix_2_thresha.txt $SCRATCH/experiments/curr/d9_currblock5/thresha-m2 dec9-b5-curr
+sbatch ../greene-scripts/basic-block.sbatch  block5/baseline2.txt  $SCRATCH/experiments/curr/d9_currblock5/baseline2 dec9-b5-curr
