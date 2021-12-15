@@ -12,7 +12,7 @@
 
 # Demonstration data and behavior cloning
 
-'demo_file'     :   '../demonstrations/fixed-dec-block5.pickle',
+'demo_file'     :   '../demonstrations/d15.pickle',
 'bc_batch_size' :   32,
 'bc_epochs'     :   30,
 'bc_learn_rate' :   1e-3,
