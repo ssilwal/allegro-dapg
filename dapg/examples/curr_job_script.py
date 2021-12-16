@@ -106,7 +106,7 @@ else:
     rl_agent = CDAPG(e, policy, baseline, demo_paths,
                     eval_thresh=ethresh,
                     incr_goals=job_data['rl_incr_goals'],
-                    sliding_scale=job_data['rl_sliding_goal'] if 'rl_sliding_goal' in job_data else False
+                    sliding_scale=job_data['rl_sliding_goal'] if 'rl_sliding_goal' in job_data else False,
                     normalized_step_size=job_data['rl_step_size'],
                     lam_0=job_data['lam_0'], lam_1=job_data['lam_1'],
                     seed=job_data['seed'], save_logs=True
