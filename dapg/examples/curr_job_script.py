@@ -102,7 +102,7 @@ if job_data['algorithm'] == 'DAPG':
                     seed=job_data['seed'], save_logs=True
                     )
 else: 
-    ethresh = job_data['eval_thresh'] if 'eval_thresh' in job_data else 0.6
+    ethresh = job_data['eval_thresh'] if 'eval_thresh' in job_data else 60
     rl_agent = CDAPG(e, policy, baseline, demo_paths,
                     eval_thresh=ethresh,
                     incr_goals=job_data['rl_incr_goals'],
