@@ -8,7 +8,7 @@
 'num_cpu'       :   16,
 'save_freq'     :   1,
 'eval_rollouts' :   25,
-'exp_notes'     :   'increase learning rate to 1e-2',
+'exp_notes'     :   'more mixing (0.5), high lr',
 
 # Demonstration data and behavior cloning
 
@@ -18,7 +18,7 @@
 'bc_learn_rate' :   1e-2,
 
 # RL parameters (all params related to PG, value function, DAPG etc.)
-'mix_goals'     :   0.3,
+'mix_goals'     :   0.5,
 'policy_size'   :   (32, 32),
 'vf_batch_size' :   64,
 'vf_epochs'     :   2,
