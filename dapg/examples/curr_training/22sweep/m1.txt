@@ -27,7 +27,7 @@
 'rl_gamma'      :   0.995,
 'rl_gae'        :   0.97,
 'rl_num_traj'   :   300,
-'rl_num_iter'   :   900,
+'rl_num_iter'   :   2000,
 'lam_0'         :   1e-2,
 'lam_1'         :   0.95,
 'rl_incr_goals' :   [[0.7,0.7,0.0,0.0],[0.5,0.5,0.5,0.5]],
