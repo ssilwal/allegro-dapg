@@ -63,7 +63,7 @@ if job_data['algorithm'] != 'NPG':
     demo_paths = pickle.load(open(job_data['demo_file'], 'rb'))
     random_start = job_data['random_starts'] if 'random_starts' in job_data else None
     if(random_start):
-        e.env.env.set_random_start(0.0)
+        e.env.env.set_random_start(random_start)
 
     bc_agent = BC(demo_paths, policy=policy, epochs=job_data['bc_epochs'], batch_size=job_data['bc_batch_size'],
                   lr=job_data['bc_learn_rate'], loss_type='MSE', set_transforms=False)
