@@ -5,17 +5,17 @@
 'env'           :   'denseblock-v5',
 'algorithm'     :   'DAPG',
 'seed'          :   123,
-'num_cpu'       :   16,
+'num_cpu'       :   5,
 'save_freq'     :   25,
 'eval_rollouts' :   25,
 'exp_notes'     :   'denseblock-v5, 50 traj, dec demo',
 
 # Demonstration data and behavior cloning
 
-'demo_file'     :   '../demonstrations/new-dec.pickle',
+'demo_file'     :   '../demonstrations/new-dec-block5.pickle',
 'bc_batch_size' :   32,
-'bc_epochs'     :   20,
-'bc_learn_rate' :   1e-2,
+'bc_epochs'     :   30,
+'bc_learn_rate' :   1e-3,
 
 # RL parameters (all params related to PG, value function, DAPG etc.)
 

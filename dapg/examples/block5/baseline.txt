@@ -14,7 +14,7 @@
 
 'demo_file'     :   '../demonstrations/fixed-dec-block5.pickle',
 'bc_batch_size' :   32,
-'bc_epochs'     :   20,
+'bc_epochs'     :   50,
 'bc_learn_rate' :   1e-2,
 
 # RL parameters (all params related to PG, value function, DAPG etc.)

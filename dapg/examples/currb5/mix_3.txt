@@ -5,7 +5,7 @@
 'env'           :   'denseblock-v5',
 'algorithm'     :   'CDAPG',
 'seed'          :   123,
-'num_cpu'       :   1,
+'num_cpu'       :   16,
 'save_freq'     :   25,
 'eval_rollouts' :   25,
 'exp_notes'     :   'block-v3 task, 14 demos, incremental changes in goals, mj c42e444',

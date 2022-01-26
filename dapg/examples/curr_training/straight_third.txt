@@ -2,27 +2,28 @@
 
 # general inputs
 
-'env'           :   'denseblock-v5',
-'algorithm'     :   'DAPG',
+'env'           :   'denseblock-v3',
+'algorithm'     :   'CDAPG',
 'seed'          :   123,
-'num_cpu'       :   16,
+'num_cpu'       :   1,
 'save_freq'     :   25,
 'eval_rollouts' :   25,
-'exp_notes'     :   'denseblock-v5, 50 traj, dec demo',
+'exp_notes'     :   'block-v3 task, 14 demos, incremental changes in goals, mj c42e444',
 
 # Demonstration data and behavior cloning
 
-'demo_file'     :   '../demonstrations/new-dec.pickle',
+'demo_file'     :   '../demonstrations/dec-block3.pickle',
 'bc_batch_size' :   32,
 'bc_epochs'     :   20,
 'bc_learn_rate' :   1e-2,
 
 # RL parameters (all params related to PG, value function, DAPG etc.)
-
+'eval_thresh'   :   0
+'mix_goals'     :   0.0,
 'policy_size'   :   (32, 32),
 'vf_batch_size' :   64,
 'vf_epochs'     :   2,
-'vf_learn_rate' :   1e-2,
+'vf_learn_rate' :   1e-3,
 'rl_step_size'  :   0.05,
 'rl_gamma'      :   0.995,
 'rl_gae'        :   0.97,
@@ -30,5 +31,6 @@
 'rl_num_iter'   :   900,
 'lam_0'         :   1e-2,
 'lam_1'         :   0.95,
+'rl_incr_goals' :   [[0.653,0.653,0.271,0.271]]
 
 }
