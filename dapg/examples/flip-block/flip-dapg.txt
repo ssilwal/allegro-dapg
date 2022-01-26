@@ -8,7 +8,7 @@
 'num_cpu'       :   5,
 'save_freq'     :   25,
 'eval_rollouts' :   25,
-'exp_notes'     :   'use DAPG for the allegro rectangle task, 8 demos,
+'exp_notes'     :   'use DAPG for the allegro rectangle task, 8 demos',
 
 # Demonstration data and behavior cloning
 
