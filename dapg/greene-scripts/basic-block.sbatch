@@ -4,9 +4,9 @@
 #SBATCH --output=/scratch/ss14499/runs/%j_%x.out
 #SBATCH --error=/scratch/ss14499/runs/%j_%x.err
 #SBATCH --export=ALL
-#SBATCH --time=16:00:00
+#SBATCH --time=04:00:00
 #SBATCH --mem=64G
-#SBATCH -c 1
+#SBATCH -c 16
 
 singularity exec --overlay  /scratch/ss14499/cnda/overlay-50G-10M.ext3:ro\
                  --overlay /scratch/work/public/singularity/mujoco200-dep-cuda11.1-cudnn8-ubunutu18.04.sqf:ro\
